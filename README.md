@@ -4,7 +4,7 @@ This project tries to solve the problem that every fresher or even an experience
 
 This web application will take a pdf/docx file as input which will further provide certain feedback to the user that can be adjusted in his/her resume.This is done with the help of ChatGPT provided by OpenAI. 
 
-I have used their API to integrate the model "gpt-3.5-turbo-instruct" into my web app which will further provide the suggestions after analysis of resume.
+I have used their [API](https://platform.openai.com/api-keys/) to integrate the model "gpt-3.5-turbo-instruct" into my web app which will further provide the suggestions after analysis of resume.
 
 ## Installation
 
