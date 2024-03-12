@@ -1,7 +1,7 @@
 import streamlit as st
 import openai
 
-openai.api_key = "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" 
+openai.api_key = "EnterYourAPIKey" 
 st.title("Resume Feedback Application")
 
 uploaded_file = st.file_uploader("Upload your resume", type=["pdf", "docx"])
