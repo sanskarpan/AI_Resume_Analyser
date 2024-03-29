@@ -21,7 +21,7 @@ if uploaded_file is not None:
         resume_text = uploaded_file.read().decode('latin-1')
 
     try:
-        feedback = client.completion.create(
+        feedback = client.completions.create(
             engine="gpt-3.5-turbo-instruct",  
             prompt=f"Provide feedback on this resume:\n{resume_text}\n---\n",
             temperature=0.5,
