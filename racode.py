@@ -1,7 +1,10 @@
 import streamlit as st
+from dotenv import load_dotenv
 import openai
+import os
 
-openai.api_key = "EnterYourAPIKey" 
+load_dotenv()
+openai.api_key = os.getenv('api_key')
 st.title("Resume Feedback Application")
 
 uploaded_file = st.file_uploader("Upload your resume", type=["pdf", "docx"])
