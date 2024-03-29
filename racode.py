@@ -7,7 +7,7 @@ import os
 # openai.api_key = os.getenv('api_key')
 
 client = OpenAI(
-  api_key=os.environ['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 '], 
+  api_key=os.environ['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'], 
 )
 st.title("Resume Feedback Application")
 
