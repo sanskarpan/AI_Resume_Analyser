@@ -23,7 +23,7 @@ if uploaded_file is not None:
     try:
         feedback = client.chat.completions.create(
             model="gpt-3.5-turbo-instruct",
-            messages=[{"role": "user", "content": f"Provide feedback on this resume:\n{resume_text}\n---\n"}],
+            messages=[{"role": "user", "content":"Provide feedback on this resume:\n{resume_text}"}],
             stream =True,          
         )
     except ZeroDivisionError:
