@@ -1,6 +1,6 @@
 import streamlit as st
 # from dotenv import load_dotenv
-import openai
+from openai import OpenAI
 # import os
 
 # # load_dotenv()
@@ -17,7 +17,9 @@ if uploaded_file is not None:
     except UnicodeDecodeError:
         resume_text = uploaded_file.read().decode('latin-1')
 
-    feedback = openai.Completion.create(
+    client =  OpenAI()
+
+    feedback = client.Completion.create(
         engine="gpt-3.5-turbo-instruct",  
         prompt=f"Provide feedback on this resume:\n{resume_text}\n---\n",
         temperature=0.5,
