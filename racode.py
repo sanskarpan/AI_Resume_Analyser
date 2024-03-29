@@ -5,9 +5,9 @@ import os
 
 # # load_dotenv()
 # openai.api_key = os.getenv('api_key')
-
+OPENAI_API_KEY = st.secrets[OPENAI_API_KEY]
 client = OpenAI(
-  api_key=os.environ['api_key'],  # this is also the default, it can be omitted
+  api_key=os.environ['OPENAI_API_KEY'], 
 )
 st.title("Resume Feedback Application")
 
