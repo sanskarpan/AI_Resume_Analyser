@@ -22,10 +22,9 @@ if uploaded_file is not None:
 
     try:
         feedback = client.chat.completions.create(
-            engine="gpt-3.5-turbo-instruct",  
-            prompt=f"Provide feedback on this resume:\n{resume_text}\n---\n",
-            temperature=0.5,
-            max_tokens=400
+            model="gpt-3.5-turbo-instruct",
+            messages=[{"role": "user", "content": f"Provide feedback on this resume:\n{resume_text}\n---\n"}],
+            stream =True,          
         )
     except ZeroDivisionError:
         st.error(f"OpenAI API error")  
