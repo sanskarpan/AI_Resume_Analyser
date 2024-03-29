@@ -6,7 +6,7 @@ import openai
 # # load_dotenv()
 # openai.api_key = os.getenv('api_key')
 
-openai.api_key = st.secrets("api_key")
+openai.api_key = "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 "
 st.title("Resume Feedback Application")
 
 uploaded_file = st.file_uploader("Upload your resume", type=["pdf", "docx"])
