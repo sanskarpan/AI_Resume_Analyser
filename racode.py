@@ -5,9 +5,9 @@ import os
 
 # # load_dotenv()
 # openai.api_key = os.getenv('api_key')
-OPENAI_API_KEY = "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"
+
 client = OpenAI(
-  api_key=os.environ['OPENAI_API_KEY'], 
+  api_key=os.environ['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 '], 
 )
 st.title("Resume Feedback Application")
 
