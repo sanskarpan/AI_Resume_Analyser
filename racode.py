@@ -21,7 +21,7 @@ if uploaded_file is not None:
         resume_text = uploaded_file.read().decode('latin-1')
 
     try:
-        feedback = client.Completion.create(
+        feedback = client.completion.create(
             engine="gpt-3.5-turbo-instruct",  
             prompt=f"Provide feedback on this resume:\n{resume_text}\n---\n",
             temperature=0.5,
@@ -31,4 +31,4 @@ if uploaded_file is not None:
         st.error(f"OpenAI API error")  
     else:
         st.subheader("Feedback on your resume:")
-        st.write(feedback['choices'][0]['text'].strip())
+        st.write(feedback.choices[0].text)
