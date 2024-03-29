@@ -1,1 +1,1 @@
-import openai
+pip install openai
