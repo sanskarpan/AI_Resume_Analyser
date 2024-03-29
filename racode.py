@@ -1,14 +1,10 @@
 import streamlit as st
-# from dotenv import load_dotenv
-from openai import OpenAI
+from dotenv import load_dotenv
+import openai
 import os
 
-# # load_dotenv()
-# openai.api_key = os.getenv('api_key')
-
-client = OpenAI(
-  api_key=os.environ['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'], 
-)
+load_dotenv()
+openai.api_key = os.getenv('api_key')
 st.title("Resume Feedback Application")
 
 uploaded_file = st.file_uploader("Upload your resume", type=["pdf", "docx"])
@@ -19,14 +15,15 @@ if uploaded_file is not None:
     except UnicodeDecodeError:
         resume_text = uploaded_file.read().decode('latin-1')
 
-    client =  OpenAI()
-
-    feedback = client.Completion.create(
-        engine="gpt-3.5-turbo-instruct",  
-        prompt=f"Provide feedback on this resume:\n{resume_text}\n---\n",
-        temperature=0.5,
-        max_tokens=400
-    )
-    
-    st.subheader("Feedback on your resume:")
-    st.write(feedback['choices'][0]['text'].strip())
+    try:
+        feedback = openai.Completion.create(
+            engine="gpt-3.5-turbo-instruct",  
+            prompt=f"Provide feedback on this resume:\n{resume_text}\n---\n",
+            temperature=0.5,
+            max_tokens=400
+        )
+    except openai.error.InvalidRequestError as e:
+        st.error(f"OpenAI API error: {str(e)}")  
+    else:
+        st.subheader("Feedback on your resume:")
+        st.write(feedback['choices'][0]['text'].strip())
